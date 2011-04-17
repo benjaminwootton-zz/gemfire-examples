@@ -1,1 +1,11 @@
-OpenCredo GemFire Examples
+This project aims to provide a set of examples, recipes, best practices and sample applications for VMWares GemFire data management project.  
+
+All examples are based on Spring.  
+
+http://www.gemstone.com/products/gemfire
+http://www.springsource.com/products/data-management
+http://www.springsource.org/
+
+The examples have been designed by Benjamin Wootton of OpenCredo.
+
+http://www.opencredo.com
