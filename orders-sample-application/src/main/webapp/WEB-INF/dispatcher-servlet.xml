@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-3.0.xsd
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+       xmlns:util="http://www.springframework.org/schema/util">
+
+    <bean id="ordersController" class="opencredo.OrdersController">
+        <property name="orderDAO" ref="ordersDAO"/>
+        <property name="location" value="${location}"/>
+        <property name="flag" value="${flag}"/>
+    </bean>
+
+    <bean id="ordersDAO" class="opencredo.OrderDAOGemFire">
+        <constructor-arg index="0" ref="distributedSystem"/>
+    </bean>
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <bean id="distributedSystem" class="com.gemstone.gemfire.distributed.DistributedSystem" factory-method="connect">
+        <constructor-arg index="0">
+            <util:properties id="distributedSystemProperties" location="gemfire.properties"/>
+        </constructor-arg>
+    </bean>
+
+    <!--<bean id="cache" class="com.gemstone.gemfire.cache.CacheFactory" factory-method="create">
+        <constructor-arg index="0" ref="distributedSystem"/>
+    </bean>-->
+
+    <bean id="attributesFactory" class="com.gemstone.gemfire.cache.AttributesFactory"/>
+
+    <!--<bean id="ordersRegion" factory-bean="cache" factory-method="getRegion">
+        <constructor-arg index="0" value="ordersRegion"/>
+    </bean>-->
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+            <value>classpath:system.properties</value>
+        </property>
+    </bean>
+
+
+</beans>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE cache PUBLIC
+        "-//GemStone Systems, Inc.//GemFire Declarative Caching 6.5//EN"
+        "http://www.gemstone.com/dtd/cache6_5.dtd">
+
+<cache>
+    <region name="sampleRegion" refid="REPLICATE">
+        <region-attributes>
+            <eviction-attributes>
+                <lru-entry-count maximum="2" action="local-destroy"/>
+            </eviction-attributes>
+        </region-attributes>
+    </region>
+</cache>
