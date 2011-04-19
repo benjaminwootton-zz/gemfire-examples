@@ -185,9 +185,9 @@
       <module fileurl="file://$PROJECT_DIR$/dataexpiration/dataexpiration.iml" filepath="$PROJECT_DIR$/dataexpiration/dataexpiration.iml" />
       <module fileurl="file://$PROJECT_DIR$/deltapropogation/deltapropogation.iml" filepath="$PROJECT_DIR$/deltapropogation/deltapropogation.iml" />
       <module fileurl="file://$PROJECT_DIR$/partitionedregions/partitionedregions.iml" filepath="$PROJECT_DIR$/partitionedregions/partitionedregions.iml" />
-      <module fileurl="file://$PROJECT_DIR$/peers/peers.iml" filepath="$PROJECT_DIR$/peers/peers.iml" />
       <module fileurl="file://$PROJECT_DIR$/replicatedregions/replicatedregions.iml" filepath="$PROJECT_DIR$/replicatedregions/replicatedregions.iml" />
       <module fileurl="file://$PROJECT_DIR$/sample-multimodule.iml" filepath="$PROJECT_DIR$/sample-multimodule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/statistics/statistics.iml" filepath="$PROJECT_DIR$/statistics/statistics.iml" />
     </modules>
   </component>
   <component name="ProjectResources">

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-3.0.xsd
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+       xmlns:util="http://www.springframework.org/schema/util">
+
+    <bean id="distributedSystem" class="com.gemstone.gemfire.distributed.DistributedSystem" factory-method="connect">
+        <constructor-arg index="0">
+            <util:properties id="distributedSystemProperties" location="gemfire.properties"/>
+        </constructor-arg>
+    </bean>
+
+    <bean id="cache" class="com.gemstone.gemfire.cache.CacheFactory" factory-method="create">
+        <constructor-arg index="0" ref="distributedSystem"/>
+    </bean>
+
+    <bean id="entryCountCacheRegion" factory-bean="cache" factory-method="getRegion">
+        <constructor-arg index="0" value="entryCountCacheRegion"/>
+    </bean>
+
+    <bean id="memorySizeCacheRegion" factory-bean="cache" factory-method="getRegion">
+        <constructor-arg index="0" value="maximumMemoryCacheRegion"/>
+    </bean>
+
+     <bean id="heapPctCacheRegion" factory-bean="cache" factory-method="getRegion">
+        <constructor-arg index="0" value="heapPctCacheRegion"/>
+    </bean>
+
+</beans>

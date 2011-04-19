@@ -52,12 +52,12 @@
 
 
     <modules>
-        <module>peers</module>
         <module>clientserver</module>
         <module>replicatedregions</module>
         <module>partitionedregions</module>
         <module>dataeviction</module>
         <module>dataexpiration</module>
+        <module>statistics</module>
     </modules>
 
 
